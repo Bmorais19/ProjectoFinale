@@ -18,7 +18,7 @@ function App() {
       <Stack.Screen name="Turnos" component={TurnosScreen}/>
       <Stack.Screen name="UserNormal" component={UserNormal}/>
       <Stack.Screen name="Info" component={InfoPessoal}/>
-      <Stack.Screen name="Home" component={HomeScreen}/>
+      <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

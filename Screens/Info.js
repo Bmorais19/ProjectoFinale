@@ -4,15 +4,12 @@ import React, {} from 'react';
 
 const InfoPessoal = ({ navigation }) => {
     return(
-    <View> 
-        <Text>
-            Trabalho realizado por Bernardo Morais Nº45347
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}> 
+        <Text style={{fontWeight:'bold',fontSize:30, fontFamily: 'Inter', color: 'black'}}>
+        Trabalho realizado por  
         </Text>
-
-        <Button
-        title="Voltar"
-        onPress={() => navigation.replace('Login')}
-        />
+        <Text  style={{fontWeight:'bold',fontSize:30, fontFamily: 'Inter', color: 'black'}}>Bernardo Morais</Text>
+        <Text  style={{fontWeight:'bold',fontSize:30, fontFamily: 'Inter', color: 'black'}}>Nº45347</Text>
     </View>
     )};
 

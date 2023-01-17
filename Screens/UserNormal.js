@@ -1,9 +1,7 @@
-import { Button, View, Text, TextInput } from 'react-native';
+import { Button, View, Text, StyleSheet } from 'react-native';
 import React, { useEffect } from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
-
-
 
 const UserNormal = ({ navigation }) => {
 
@@ -68,15 +66,37 @@ const UserNormal = ({ navigation }) => {
   }, []);
 
   return (
-    <View>
-    <Text>{nome}</Text>
-    <Text>Hora do Inicio - {horaInicio}</Text>
-    <Text>Hora do Fim do Turno - {horaFim}</Text>
+    <View style={styles.row}>
+    
+    <Text style= {{fontWeight:'bold',fontSize:40, fontFamily: 'Inter', color: 'black', justifyContent: 'center',alignItems:'center'}}>              {nome}</Text>
+    <Text></Text>
+    <Text></Text>
+    <Text></Text>
+    <Text style= {{fontSize:30, fontFamily: 'Inter', color: 'black', justifyContent: 'center',alignItems:'center'}}>Hora do Inicio do Turno - {horaInicio}</Text>
+    <Text style= {{fontSize:30, fontFamily: 'Inter', color: 'black', justifyContent: 'center',alignItems:'center'}}>Hora do Fim do Turno - {horaFim}</Text>
+    <View style={styles.roww}>
     <Button
     title="Back"
     onPress={()=>logout()}/>
     </View>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  row: {
+    width: '99%',
+    paddingTop: '50%',
+  },
+  roww: {
+    color: 'white',
+    fontWeight: 'bold',
+    position: 'relative',
+    borderRadius: 110,
+    paddingHorizontal: 10,
+    marginVertical: 20
+  }
+});
+
 
 export default UserNormal;

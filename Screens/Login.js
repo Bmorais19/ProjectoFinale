@@ -1,7 +1,6 @@
-import { Button, View, TextInput } from 'react-native';
+import { Button, View, TextInput, StyleSheet, Text } from 'react-native';
 import React, { useState } from 'react';
 import auth from '@react-native-firebase/auth';
-
 
 const LoginScreen = ({ navigation }) => {
   const [pUser, setpUser] = useState('');
@@ -48,24 +47,43 @@ const LoginScreen = ({ navigation }) => {
           onChangeText={text => setpPassword(text)}
         />
 
+        <Text></Text>
+
+        <View style={styles.row}>
+
+        
+
         <Button
         title={ShowPass ? "Hide password" : "Show password"}
         onPress={() => setShowPass(!ShowPass)}
-        
         />
         
+        <Text></Text>
+
         <Button
         title="Login"
         onPress={testelog}
         />
 
-        <Button
-        title="Voltar"
-        onPress={() => navigation.replace('Home')}
-        />
+      </View>
+
       </View>
     );
 
 };
+
+const styles = StyleSheet.create({
+  row: {
+    width: '100%',
+    borderRadius: 110,
+    paddingHorizontal: 10,
+    marginVertical: 5,
+  },
+  textinput: {
+    color: 'white',
+    fontWeight: 'bold',
+    position: 'relative',
+  }
+});
 
 export default LoginScreen;

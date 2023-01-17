@@ -1,4 +1,4 @@
-import { Button, View, TextInput } from 'react-native';
+import { Button, View, TextInput, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
@@ -56,22 +56,32 @@ const RegisterScreen = ({ navigation }) => {
       onChangeText={text => setpPassword(text)}
     />
 
+    <View style={styles.row}>
     <Button
       title="Registar Conta"
       onPress={Register}
     />
+    </View>
 
-    <Button
-      title="Iniciar Sessão"
-      onPress={() => navigation.replace('Login')}
-    />
+    
 
-    <Button
-      title="Voltar ao Menu"
-      onPress={() => navigation.replace('Home')}
-    />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  row: {
+    width: '100%',
+    borderRadius: 110,
+    paddingHorizontal: 10,
+    marginVertical: 5,
+  },
+  textinput: {
+    color: 'white',
+    fontWeight: 'bold',
+    position: 'relative',
+  }
+});
+
 
 export default RegisterScreen;

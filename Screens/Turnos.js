@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, Button } from 'react-native';
+import { View, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
 import firestore from '@react-native-firebase/firestore';
 
 
@@ -44,7 +44,7 @@ const TurnosScreen = ({navigation}) => {
       horaFim: selectedShift2
     })
     .then(() => {
-      alert("Turno Criado!\n Obrigado por usar a nossa App!");
+      alert("Turno Criado!");
       navigation.replace("Login")
     });
   };
@@ -65,7 +65,7 @@ const TurnosScreen = ({navigation}) => {
   {
     return (
       <View>
-        <Text>Selecione a hora que quer começar:</Text>
+        <Text style= {{fontWeight:'bold',fontSize:20, fontFamily: 'Inter', color: 'black', justifyContent: 'center',alignItems:'center'}}>          Selecione a hora que quer começar:</Text>
         {comecar.map((shift) => (
           <TouchableOpacity
             key={shift}
@@ -79,10 +79,12 @@ const TurnosScreen = ({navigation}) => {
             <Text>{shift}</Text>
           </TouchableOpacity>
         ))}
+        <View style={styles.roww}>
         <Button
         title="Back"
         onPress={() => navigation.replace('Login')}>
         </Button>
+        </View>
       </View>
     );
   }
@@ -93,7 +95,7 @@ const TurnosScreen = ({navigation}) => {
     {
       return (
         <View>
-          <Text>Selecione a hora que quer acabar:</Text>
+          <Text style= {{fontWeight:'bold',fontSize:20, fontFamily: 'Inter', color: 'black', justifyContent: 'center',alignItems:'center'}}>            Selecione a hora que quer acabar:</Text>
           {acabar.map((shift) => (
             <TouchableOpacity
               key={shift}
@@ -127,11 +129,12 @@ const TurnosScreen = ({navigation}) => {
               <Text>{shift}</Text>
             </TouchableOpacity>
           ))}
+          <View style={styles.roww}>
           <Button
           title='Enviar para o Utilizador'
           onPress={Enviar}
           />
-          
+          </View>
         </View>
       );
     }
@@ -139,5 +142,21 @@ const TurnosScreen = ({navigation}) => {
   }
 
 };
+
+
+const styles = StyleSheet.create({
+  row: {
+    width: '100%',
+  },
+  roww: {
+    color: 'white',
+    fontWeight: 'bold',
+    position: 'relative',
+    borderRadius: 110,
+    paddingHorizontal: 10,
+    marginVertical: 5
+  }
+});
+
 
 export default TurnosScreen;
